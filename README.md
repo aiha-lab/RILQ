@@ -6,13 +6,15 @@
 This repository contains the implementation for the paper [RILQ: Rank-Insensitive LoRA-based Quantization Error Compensation for Boosting 2-bit Large Language Model Accuracy](https://arxiv.org/abs/2412.01129)
 
 
-## Features
+![overview](figures/overview.png)
+
+## RILQ: Memory-efficient & rank insensitive Quantization error compensation
 
 - Fully compatible with the HuggingFace Transformers package.
-- RILQ: memory efficient & rank insensitive
-  - Enhance LoRA based QEC(Quantization Error Correction).
-  - Rank-insensitive LQEC: higher accuracy with smaller ranks
-  - Independent to quantization methods (support only fake quantized models)
+- Independent of quantization methods (supports only fake quantized models).
+- RILQ enhances LoRA based QEC(Quantization Error Correction).
+- Rank-insensitive: achieve higher accuracy even with smaller ranks.
+  
 
 
 ## Install & Run
@@ -46,21 +48,21 @@ bash rilq-llama2_7b_r64.sh
 - RILQ
    - `a_type`: scope of Model-Loss
      - "hid": output of the last decoder layer
-     - "logit": output of lm_head, if output of the last decoder layer is not extractable (layer fusion) 
+     - "logit": output of lm_head, when output of the last decoder layer is not extractable (layer fusion) 
    - `approx_total_steps`: max training step
    - `approx_lr`: learning rate
    - `approx_batch_size`: batch size
    - `gradient_accumulation_steps`: gradient accumulation step
-   - `approx_eval_steps`: evaluation step
+   - `approx_eval_steps`: validation step
    - `approx_early_stop`: if true, end trainig when loss converges and save model with best validation loss
-   - `approx_es_patience`: the number of evaluations after the best loss to check convergence of loss
+   - `approx_es_patience`: the number of validation after the best validation loss to ensure convergence of loss
  
 
 ## Example Results
 - The PPL results of RTN(W2A16G64) quantized LLaMA-2-7B and RILQ optimized models with different ranks
   - C4, 320 samples with 512 sequence lengths, validation ratio=0.2
   - Learning rate = 1e-4, batch size=1, gradient accumulation steps=8
-  - Early stop, evaluation steps=25, es_patience=5 
+  - Early stopping, evaluation steps=25, es_patience=5 
 
     |LoRA rank | Wiki2 | C4   | Avg. |
     |----------|-------|------|------|
