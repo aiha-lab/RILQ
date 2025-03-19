@@ -34,7 +34,7 @@ bash rilq-llama2_7b_r64.sh
 ### Arg Options 
 - Model
    - `base_model`: directory of FP Model
-   - `q_model`: directory of Fake Quantized Model
+   - `q_model`: directory of Fake Quantized Model (same architecture with `base_model`)
    - `lora_r`: rank of LoRA
    - `lora_alpha`: alpha of LoRA
    - `lora_dropout`: dropout of LoRA
