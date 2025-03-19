@@ -72,6 +72,12 @@ bash rilq-llama2_7b_r64.sh
     |64        | 10.05 | 11.79| 10.92|
     |128       | 10.12 | 11.87| 11.00|
 
+## Note
+- Current code supports Llama-2 family and Llama-3-8B
+- To support other model, modification of target linears is required
+  - target_linear in `main.py`
+  - MODEL_INFO in `rilq_utils/utils.py`
+
 
 
 
