@@ -85,10 +85,6 @@ MODEL_INFO={
     "Meta-Llama-3-8B":{
         'linears': {'q_proj','k_proj','v_proj','o_proj','up_proj','down_proj','gate_proj'},
         'sublayers': {'mlp','self_attn'}
-    },
-
-    "roberta-large":{
-        'linears': {'query','key','value','output.dense','intermediate.dense'}
     }
 }
 
